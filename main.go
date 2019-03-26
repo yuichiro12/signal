@@ -5,15 +5,13 @@ import (
 	"os"
 	"os/signal"
 	"syscall"
-	"time"
-
-	"github.com/briandowns/spinner"
 )
 
 func main() {
-	spinner.New(spinner.CharSets[9], 100*time.Millisecond).Start()
-	for {
-	}
+	// spinner.New(spinner.CharSets[9], 100*time.Millisecond).Start()
+	// for {
+	// }
+	signalHandler()
 }
 
 func signalHandler() {
@@ -30,7 +28,6 @@ func signalHandler() {
 				exitChan <- 0
 			case syscall.SIGTERM:
 				fmt.Println("SIGTERM")
-				exitChan <- 0
 			case syscall.SIGKILL:
 				fmt.Println("SIGKILL is uncaught!")
 			case syscall.SIGQUIT:
